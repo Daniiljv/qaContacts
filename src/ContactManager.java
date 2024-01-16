@@ -49,7 +49,7 @@ public class ContactManager {
 
             viewAllContacts();
 
-            System.out.print("Put the serial number of contact you would like to update - ");
+            System.out.print("\nPut the serial number of contact you would like to update - ");
             int contactToUpdate = scanner.nextInt() - 1;
 
             if (contactToUpdate < size && contactToUpdate >= 0) {
@@ -164,7 +164,7 @@ public class ContactManager {
                             break;
 
                         default:
-                            System.out.println("Wrong answer try again!\n");
+                            System.out.println("\nWrong answer try again!\n");
                     }
                 }
             } else
@@ -179,7 +179,7 @@ public class ContactManager {
 
             viewAllContacts();
 
-            System.out.print("\nPut the serial number of the Contact to remove - ");
+            System.out.print("\nPut the serial number of the Contact to delete - ");
             int contactToRemove = scanner.nextInt() - 1;
 
             if (contactToRemove < size && contactToRemove >= 0) {
@@ -189,8 +189,8 @@ public class ContactManager {
 
                 switch (confirm) {
                     case 1:
-                        contacts[contactToRemove] = null;
                         System.out.println("Contact " + contacts[contactToRemove].getFirstName() + " deleted!");
+                        contacts[contactToRemove] = null;
                         break;
                     case 2:
                         System.out.println("Deleting contact " + contacts[contactToRemove].getFirstName() + " canceled!");
