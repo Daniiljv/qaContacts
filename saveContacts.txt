@@ -1,0 +1,10 @@
+FirstName - Daniil
+LastName - Kovalenko
+PhoneNumber - 12345678
+Email - daniil@example.com
+------------------------------------------------------------
+FirstName - Altay
+LastName - Zorig
+PhoneNumber - 87654321
+Email - altay@example.com
+------------------------------------------------------------
