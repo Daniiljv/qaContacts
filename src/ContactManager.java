@@ -30,7 +30,7 @@ public class ContactManager {
         String lastName = scanner.nextLine();
         System.out.print("Put the PHONE NUMBER - ");
         String phoneNumber = scanner.nextLine();
-        System.out.print("Put the email - ");
+        System.out.print("Put the EMAIL - ");
         String email = scanner.nextLine();
 
         try {                                                   // Try to create a new contact
@@ -46,9 +46,8 @@ public class ContactManager {
         if (size > 0) {
 
             System.out.println("========== UPDATE CONTACT ==========");
-            System.out.println();
+
             viewAllContacts();
-            System.out.println();
 
             System.out.print("Put the serial number of contact you would like to update - ");
             int contactToUpdate = scanner.nextInt() - 1;
