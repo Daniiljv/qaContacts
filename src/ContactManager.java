@@ -313,11 +313,34 @@ public class ContactManager {
             fileReader.close();
             scannerToReadFile.close();
 
-            System.out.println("\n========== Successfully imported to yours contacts ==========\n");
+            System.out.println("\n========== Successfully imported to yours contacts ==========");
 
         } catch (IOException | ArrayIndexOutOfBoundsException ioException) {
             System.out.println(ioException.getMessage());
         }
+    }
+
+    public void getContactInfo() {
+        if (size > 0) {
+
+            System.out.println("========== View information about contact ==========");
+            System.out.print("\nWrite first name of the contact - ");
+            String firstName = scanner.nextLine();
+
+            boolean contactFound = false;
+
+            for (int i = 0; i < size; i++) {
+                if (firstName.equals(contacts[i].getFirstName())) {
+                    System.out.println(contacts[i]);
+                    contactFound = true;
+                }
+            }
+
+            if (!contactFound)
+                System.out.println("\nThere is no contact with name " + firstName);
+
+        } else
+            System.out.println("\nNo contacts available!");
     }
 }
 

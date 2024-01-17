@@ -21,6 +21,7 @@ public class Main {
                         6.Import contacts from the file
                         7.Find contact by first name
                         8.Find contact by phone number
+                        9.View information about contact
                         0.Exit
                         """);
 
@@ -51,6 +52,9 @@ public class Main {
                         break;
                     case 8:
                         contactManager.findContactByPhoneNumber();
+                        break;
+                    case 9:
+                        contactManager.getContactInfo();
                         break;
                     case 0:
                         programIsWorking = false;
