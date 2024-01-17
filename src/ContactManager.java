@@ -273,10 +273,12 @@ public class ContactManager {
                 FileWriter fileWriter = new FileWriter(file);
 
                 for (int i = 0; i < size; i++) {
-                    String contact = String.valueOf(contacts[i]);
+                    if (contacts[i] != null){
+                        String contact = String.valueOf(contacts[i]);
                     fileWriter.write(contact);
                     fileWriter.write("\n------------------------------------------------------------\n");
                 }
+            }
                 fileWriter.close();
 
                 System.out.println("\n========== Successfully saved into the file " + file + " ==========\n");
