@@ -334,9 +334,12 @@ public class ContactManager {
             boolean contactFound = false;
 
             for (int i = 0; i < size; i++) {
-                if (firstName.equals(contacts[i].getFirstName())) {
-                    System.out.println(contacts[i]);
-                    contactFound = true;
+                if (contacts[i] != null) {
+                    if (firstName.equals(contacts[i].getFirstName())) {
+                        System.out.println(contacts[i]);
+                        contactFound = true;
+                        System.out.println("=======================================");
+                    }
                 }
             }
 
