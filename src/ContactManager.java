@@ -169,13 +169,11 @@ public class ContactManager {
                                 System.out.println("\nWrong answer try again!\n");
                         }
                     }
-                } else
-                    System.out.println("\nWrong serial number!");
+                } else System.out.println("\nWrong serial number!");
             } catch (NullPointerException nullPointerException) {
                 System.out.println(nullPointerException.getMessage());
             }
-        } else
-            System.out.println("\nNo contacts available!");
+        } else System.out.println("\nNo contacts available!");
     }
 
 
@@ -190,7 +188,7 @@ public class ContactManager {
                 System.out.print("\nPut the serial number of the Contact to delete - ");
                 int contactToRemove = scanner.nextInt() - 1;
 
-                if (contactToRemove < size && contactToRemove >= 0) {
+                if (contactToRemove < size && contactToRemove >= 0 && contacts[contactToRemove] != null) {
                     System.out.println("Confirm deleting contact " + contacts[contactToRemove].getFirstName());
                     System.out.println("1.Yes\n2.No");
                     int confirm = scanner.nextInt();
@@ -210,9 +208,7 @@ public class ContactManager {
             } catch (NullPointerException nullPointerException) {
                 System.out.println(nullPointerException.getMessage());
             }
-        } else
-            System.out.println("\nNo contacts available!");
-
+        } else System.out.println("\nNo contacts available!");
     }
 
     public void findContactByFirstName() {
@@ -225,15 +221,18 @@ public class ContactManager {
             boolean contactFound = false;
 
             for (int i = 0; i < size; i++) {
-                if (firstName.equals(contacts[i].getFirstName())) {
-                    System.out.println("\nContact with first name - " + firstName + " is found");
-                    System.out.println(contacts[i]);
-                    contactFound = true;
+                if (contacts[i] != null) {
+
+                    if (firstName.equals(contacts[i].getFirstName())) {
+                        System.out.println("\nContact with first name - " + firstName + " is found");
+                        System.out.println(contacts[i]);
+                        contactFound = true;
+                    }
+
                 }
             }
 
-            if (!contactFound)
-                System.out.println("\nContact with first name - " + firstName + " is not found.");
+            if (!contactFound) System.out.println("\nContact with first name - " + firstName + " is not found.");
 
         } else System.out.println("\nNo contacts available!");
     }
@@ -248,18 +247,20 @@ public class ContactManager {
             boolean contactFound = false;
 
             for (int i = 0; i < size; i++) {
-                if (phoneNumber.equals(contacts[i].getPhoneNumber())) {
-                    System.out.println("\nContact with phone number - " + phoneNumber + " is found");
-                    System.out.println(contacts[i]);
-                    contactFound = true;
+                if (contacts[i] != null) {
+
+                    if (phoneNumber.equals(contacts[i].getPhoneNumber())) {
+                        System.out.println("\nContact with phone number - " + phoneNumber + " is found");
+                        System.out.println(contacts[i]);
+                        contactFound = true;
+                    }
+
                 }
             }
 
-            if (!contactFound)
-                System.out.println("\nContact with phone number - " + phoneNumber + " is not found.");
+            if (!contactFound) System.out.println("\nContact with phone number - " + phoneNumber + " is not found.");
 
-        } else
-            System.out.println("\nNo contacts available!");
+        } else System.out.println("\nNo contacts available!");
     }
 
     public void saveContactsIntoFile() {
@@ -273,12 +274,12 @@ public class ContactManager {
                 FileWriter fileWriter = new FileWriter(file);
 
                 for (int i = 0; i < size; i++) {
-                    if (contacts[i] != null){
+                    if (contacts[i] != null) {
                         String contact = String.valueOf(contacts[i]);
-                    fileWriter.write(contact);
-                    fileWriter.write("\n------------------------------------------------------------\n");
+                        fileWriter.write(contact);
+                        fileWriter.write("\n------------------------------------------------------------\n");
+                    }
                 }
-            }
                 fileWriter.close();
 
                 System.out.println("\n========== Successfully saved into the file " + file + " ==========\n");
@@ -286,8 +287,7 @@ public class ContactManager {
             } catch (IOException ioException) {
                 System.out.println(ioException.getMessage());
             }
-        } else
-            System.out.println("\nNo contacts available!");
+        } else System.out.println("\nNo contacts available!");
     }
 
     public void importContactFromFile() {
@@ -317,8 +317,10 @@ public class ContactManager {
 
             System.out.println("\n========== Successfully imported to yours contacts ==========");
 
-        } catch (IOException | ArrayIndexOutOfBoundsException ioException) {
+        } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
+        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+            System.out.println(arrayIndexOutOfBoundsException.getMessage());
         }
     }
 
@@ -338,12 +340,8 @@ public class ContactManager {
                 }
             }
 
-            if (!contactFound)
-                System.out.println("\nThere is no contact with name " + firstName);
+            if (!contactFound) System.out.println("\nThere is no contact with name " + firstName);
 
-        } else
-            System.out.println("\nNo contacts available!");
+        } else System.out.println("\nNo contacts available!");
     }
 }
-
-
